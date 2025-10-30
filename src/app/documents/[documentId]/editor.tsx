@@ -1,6 +1,10 @@
 "use client";
 
 import { useEditor, EditorContent } from '@tiptap/react'
+import { Color } from '@tiptap/extension-color'
+import Link from '@tiptap/extension-link';
+import TextAlign from '@tiptap/extension-text-align';
+import Highlight from '@tiptap/extension-highlight'
 import StarterKit from '@tiptap/starter-kit'
 import FontFamily from '@tiptap/extension-font-family'
 import TextStyle from '@tiptap/extension-text-style';
@@ -13,6 +17,9 @@ import TableRow from '@tiptap/extension-table-row'
 import Image from'@tiptap/extension-image'
 import ImageResize from 'tiptap-extension-resize-image';
 import { Underline } from '@tiptap/extension-underline';
+import BulletList from "@tiptap/extension-bullet-list";
+import OrderedList from "@tiptap/extension-ordered-list";
+import ListItem from "@tiptap/extension-list-item";   
 
 import { useEditorStore } from '@/store/use-editor-store';
 
@@ -49,6 +56,16 @@ export const Editor=()=>{
     },
     extensions: [
       StarterKit,
+      TextAlign.configure({
+        types: ['heading', 'paragraph'],
+      }),
+      Color,
+      Link.configure({
+        openOnClick: false,
+        autolink: true,
+        defaultProtocol: 'https',
+      }),
+      Highlight.configure({ multicolor: true }),
       FontFamily,
       TextStyle,
       Image,
