@@ -17,8 +17,13 @@ import TableRow from '@tiptap/extension-table-row'
 import Image from'@tiptap/extension-image'
 import ImageResize from 'tiptap-extension-resize-image';
 import { Underline } from '@tiptap/extension-underline';
+<<<<<<< HEAD
 import {FontSizeExtension} from '@/extensions/font-size'; 
 
+=======
+import {FontSizeExtensions} from '@/extensions/font-size'; 
+import {LineHeightExtension} from '@/extensions/line-height';
+>>>>>>> d54bd6e4326aab64cc8befee615e341ea533927d
 import { useEditorStore } from '@/store/use-editor-store';
 
 export const Editor=()=>{
@@ -54,7 +59,15 @@ export const Editor=()=>{
     },
     extensions: [
       StarterKit,
+<<<<<<< HEAD
       FontSizeExtension,
+=======
+      LineHeightExtension.configure({
+        types: ['paragraph', 'heading'],
+        defaultLineHeight: 'normal'
+      }),
+      FontSizeExtensions,
+>>>>>>> d54bd6e4326aab64cc8befee615e341ea533927d
       TextAlign.configure({
         types: ['heading', 'paragraph'],
       }),

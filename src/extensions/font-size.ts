@@ -31,7 +31,11 @@ export const FontSizeExtensions = Extension.create({
               }
 
               return {
+<<<<<<< HEAD
                 style: font-size: ${attributes.fontSize},
+=======
+                style: `font-size: ${attributes.fontSize}`,
+>>>>>>> d54bd6e4326aab64cc8befee615e341ea533927d
               };
             },
           },
