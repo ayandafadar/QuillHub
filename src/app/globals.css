@@ -42,6 +42,7 @@ body {
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
+
   .dark {
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
@@ -82,36 +83,36 @@ body {
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }
 }
 
-.tiptap{
-
-  /*Link styles*/
-  a{
+.tiptap {
+  /* Link styles */
+  a {
     @apply text-blue-600;
     cursor: pointer;
 
-    &:hover{
-      @apply underline;
+    &:hover {
+      @apply underline underline-offset-4;
     }
   }
 
- /* Image-specific styling */
- img {
+  /* Image specific styling */
+  img {
     display: block;
     height: auto;
     margin: 1.5rem 0;
     max-width: 100%;
 
     &.ProseMirror-selectednode {
-      outline: 3px solid var(--purple);
+      outline: 3px solid var(--primary);
     }
   }
-  
- /* Table-specific styling */
+
+  /* Table-specific styling */
   table {
     border-collapse: collapse;
     margin: 0;
@@ -140,8 +141,8 @@ body {
     }
 
     .selectedCell:after {
-      background: 959596;
-      content: '';
+      background: var(#959596);
+      content: "";
       left: 0;
       right: 0;
       top: 0;
@@ -171,9 +172,8 @@ body {
     cursor: ew-resize;
     cursor: col-resize;
   }
-}
 
- /* Heading styles */
+  /* Heading styles */
   h1,
   h2,
   h3,
@@ -209,30 +209,33 @@ body {
     font-size: 1rem;
   }
 
-
   /* List styles */
   ul,
   ol {
     padding: 0 1rem;
     margin: 1.25rem 1rem 1.25rem 0.4rem;
   }
-  ul li{
-    list-style-type:disc;
+
+  ul li {
+    list-style-type: disc;
+
     p {
       margin-top: 0.25em;
       margin-bottom: 0.25em;
     }
   }
 
-  or li{
-    list-style-type:decimal;
+  ol li {
+    list-style-type: decimal;
+
     p {
       margin-top: 0.25em;
       margin-bottom: 0.25em;
     }
   }
-   /* Task list specific styles */
-  ul[data-type='taskList'] {
+
+  /* Task list specific styles */
+  ul[data-type="taskList"] {
     list-style: none;
     margin-left: 0;
     padding: 0;
@@ -252,11 +255,42 @@ body {
       }
     }
 
-    input[type='checkbox'] {
+    input[type="checkbox"] {
       cursor: pointer;
     }
 
-    ul[data-type='taskList'] {
+    ul[data-type="taskList"] {
       margin: 0;
     }
   }
+}
+
+/* For mobile */
+
+.floating-threads {
+  display: none;
+}
+
+/* For desktop */
+
+.anchored-threads {
+  display: block;
+  max-width: 300px;
+  width: 100%;
+  position: absolute;
+  right: 12px;
+}
+
+@media (max-width: 640px) {
+  .floating-threads {
+    display: block;
+  }
+
+  .anchored-threads {
+    display: none;
+  }
+}
+
+div[data-radix-popper-content-wrapper] {
+  z-index: 50!important
+}
