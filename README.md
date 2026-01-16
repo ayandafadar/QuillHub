@@ -47,8 +47,8 @@ Before setting up the project, ensure you have:
 ### 1. Clone and Install Dependencies
 
 ```bash
-git clone https://github.com/Davronov-Alimardon/google-docs.git
-cd google-docs-clone
+git clone https://github.com/ayandafadar/QuillHub.git
+cd QuillHub
 npm install
 ```
 
