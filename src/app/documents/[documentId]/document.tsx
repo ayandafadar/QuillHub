@@ -15,6 +15,17 @@ interface DocumentProps {
 export const Document = ({ preloadedDocument }: DocumentProps) => {
   const document = usePreloadedQuery(preloadedDocument);
 
+  if (!document) {
+    return (
+      <div className="min-h-screen bg-editor-bg flex items-center justify-center">
+        <div className="text-center">
+          <p className="text-lg font-medium">Document not found</p>
+          <p className="text-sm text-muted-foreground">It may have been deleted or you no longer have access.</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <Room>
       <div className="min-h-screen bg-editor-bg">

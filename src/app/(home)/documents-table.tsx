@@ -26,31 +26,36 @@ export const DocumentsTable = ({ documents, loadMore, status }: DocumentsTablePr
           <LoaderIcon className="size-5 animate-spin text-muted-foreground" />
         </div>
       ) : (
-        <Table>
-          <TableHeader>
-            <TableRow>
-              <TableHead>Name</TableHead>
-              <TableHead>&nbsp;</TableHead>
-              <TableHead className="hidden md:table-cell">Shared</TableHead>
-              <TableHead className="hidden md:table-cell">Created at</TableHead>
-            </TableRow>
-          </TableHeader>
-          {documents.length === 0 ? (
-            <TableBody>
-              <TableRow className="hover:bg-transparent">
-                <TableCell colSpan={4} className="h-24 text-muted-foreground text-center">
-                  No documents found
-                </TableCell>
+        <div className="bg-white border border-neutral-200 rounded-xl overflow-hidden shadow-sm">
+          <Table>
+            <TableHeader>
+              <TableRow className="bg-neutral-50">
+                <TableHead className="text-neutral-700">Name</TableHead>
+                <TableHead className="text-neutral-700">&nbsp;</TableHead>
+                <TableHead className="hidden md:table-cell text-neutral-700">Shared</TableHead>
+                <TableHead className="hidden md:table-cell text-neutral-700">Created at</TableHead>
+                <TableHead className="text-right text-neutral-700">
+                  <span className="sr-only">Actions</span>
+                </TableHead>
               </TableRow>
-            </TableBody>
-          ) : (
-            <TableBody>
-              {documents.map((document) => (
-                <DocumentRow key={document._id} document={document} />
-              ))}
-            </TableBody>
-          )}
-        </Table>
+            </TableHeader>
+            {documents.length === 0 ? (
+              <TableBody>
+                <TableRow className="hover:bg-transparent">
+                  <TableCell colSpan={4} className="h-24 text-muted-foreground text-center">
+                    No documents found
+                  </TableCell>
+                </TableRow>
+              </TableBody>
+            ) : (
+              <TableBody>
+                {documents.map((document) => (
+                  <DocumentRow key={document._id} document={document} />
+                ))}
+              </TableBody>
+            )}
+          </Table>
+        </div>
       )}
       <div className="flex items-center justify-center">
         <Button

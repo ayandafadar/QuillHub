@@ -12,9 +12,9 @@ export const Navbar = () => {
         <Link href="/">
           <Image src={"/logo.svg"} alt="Logo" width={36} height={36} />
         </Link>
-        <h3 className="text-xl">QuillHub</h3>
+        <h3 className="text-xl font-semibold tracking-tight text-neutral-900">QuillHub</h3>
       </div>
-      <SearchInput/>
+      <SearchInput />
       <div className="flex gap-3 items-center pl-6">
         <OrganizationSwitcher
           afterCreateOrganizationUrl="/"

@@ -31,15 +31,15 @@ export const SearchInput = () => {
 
   return (
     <div className="flex-1 flex items-center justify-center">
-      <form className="relative max-w-[720px] w-full" onSubmit={handleSubmit}>
+      <form className="relative max-w-[900px] w-full" onSubmit={handleSubmit}>
         <Input
           value={value}
           onChange={handleChange}
           ref={inputRef}
-          placeholder="Search"
-          className="md:text-base placeholder:text-neutral-800 px-14 w-full border-none 
-          focus-visible:shadow-[0_1px_1px_0_rgba(65,69,73,.3),0_1px_3px_1px_rgba(65,69,73,.15)] bg-[#F0F4F8] 
-          rounded-full h-[48px] focus-visible:ring-0 focus-visible:bg-white"
+          placeholder="Search Documents"
+          className="md:text-base placeholder:text-neutral-500 px-14 w-full border border-transparent
+          focus-visible:shadow-[0_1px_1px_0_rgba(0,0,0,.06),0_6px_16px_-6px_rgba(0,0,0,.2)] bg-neutral-100
+          rounded-full h-[48px] focus-visible:ring-0 focus-visible:bg-white focus-visible:border-neutral-300"
         />
         <Button
           type="submit"

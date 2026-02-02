@@ -1,38 +1,31 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 517">
-  <!-- White Background -->
   <rect width="400" height="517" fill="white"/>
-  
-  <!-- Geometric Pattern -->
-  <g transform="translate(50, 30) scale(0.7)">
-    <!-- Background layers -->
-    <path d="M0 0 L450 0 L450 250 L0 250 Z" fill="#80CBC4"/>
-    <path d="M0 50 L200 50 L350 200 L0 200 Z" fill="#E8C59C" transform="rotate(-10)"/>
-    <path d="M100 100 L450 100 L450 250 L100 250 Z" fill="#4DB6AC" transform="rotate(-10)"/>
-    <path d="M-50 150 L100 150 L100 200 L-50 200 Z" fill="#FF5722" transform="rotate(-10)"/>
-    <path d="M350 180 L450 180 L450 230 L350 230 Z" fill="#5D4037" transform="rotate(-10)"/>
-  </g>
 
-  <!-- Project Title -->
-  <text x="50" y="300" font-family="Arial, sans-serif" font-size="24" fill="#5D4037" font-weight="bold">
-    Project Name
-  </text>
-  
-  <!-- Date -->
-  <text x="50" y="330" font-family="Arial, sans-serif" font-size="12" fill="#666666">
-    09.04.20XX
-  </text>
-  
-  <!-- Contact Information -->
-  <text x="50" y="380" font-family="Arial, sans-serif" font-size="12" fill="#666666">
-    Your Name
-  </text>
-  <text x="50" y="400" font-family="Arial, sans-serif" font-size="12" fill="#666666">
-    Your Company
-  </text>
-  <text x="50" y="420" font-family="Arial, sans-serif" font-size="12" fill="#666666">
-    123 Your Street
-  </text>
-  <text x="50" y="440" font-family="Arial, sans-serif" font-size="12" fill="#666666">
-    Your City, ST 12345
-  </text>
+  <!-- Header -->
+  <text x="24" y="42" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#000000">Project Proposal</text>
+  <text x="24" y="60" font-family="Arial, sans-serif" font-size="10" fill="#000000" opacity="0.7">Prepared for [Client Name]</text>
+
+  <!-- Title block -->
+  <text x="24" y="115" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#000000">Project Name</text>
+  <text x="24" y="135" font-family="Arial, sans-serif" font-size="10" fill="#000000" opacity="0.7">Date: 09.04.20XX</text>
+
+  <rect x="24" y="155" width="352" height="2" fill="#000000" opacity="0.3"/>
+
+  <!-- Summary section -->
+  <text x="24" y="185" font-family="Arial, sans-serif" font-size="11" fill="#000000">Summary</text>
+  <line x1="24" y1="193" x2="120" y2="193" stroke="#000000" stroke-width="1" opacity="0.4"/>
+  <text x="24" y="212" font-family="Arial, sans-serif" font-size="10" fill="#000000" opacity="0.7">• Objective and scope overview</text>
+  <text x="24" y="230" font-family="Arial, sans-serif" font-size="10" fill="#000000" opacity="0.7">• Key deliverables and outcomes</text>
+
+  <!-- Timeline section -->
+  <text x="24" y="270" font-family="Arial, sans-serif" font-size="11" fill="#000000">Timeline</text>
+  <rect x="24" y="282" width="352" height="10" fill="#000000" opacity="0.15"/>
+  <rect x="24" y="282" width="210" height="10" fill="#000000"/>
+  <text x="24" y="306" font-family="Arial, sans-serif" font-size="10" fill="#000000" opacity="0.7">Discovery → Design → Delivery</text>
+
+  <!-- Footer contact -->
+  <text x="24" y="360" font-family="Arial, sans-serif" font-size="11" fill="#000000">Prepared by</text>
+  <text x="24" y="382" font-family="Arial, sans-serif" font-size="10" fill="#000000" opacity="0.7">Your Name</text>
+  <text x="24" y="400" font-family="Arial, sans-serif" font-size="10" fill="#000000" opacity="0.7">Your Company</text>
+  <text x="24" y="418" font-family="Arial, sans-serif" font-size="10" fill="#000000" opacity="0.7">your.email@example.com</text>
 </svg>

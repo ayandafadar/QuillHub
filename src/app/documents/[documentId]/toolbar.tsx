@@ -460,11 +460,15 @@ const HeadingLevelButton = () => {
 
   const headings = [
     { label: "Normal text", value: 0, fontSize: "16px" },
-    { label: "Heding 1", value: 1, fontSize: "32px" },
-    { label: "Heding 2", value: 2, fontSize: "24px" },
-    { label: "Heding 3", value: 3, fontSize: "20px" },
-    { label: "Heding 4", value: 4, fontSize: "18px" },
-    { label: "Heding 5", value: 5, fontSize: "16px" },
+    { label: "Title", value: 1, fontSize: "32px" },
+    { label: "Subtitle", value: 2, fontSize: "24px" },
+    { label: "Heading 1", value: 1, fontSize: "28px" },
+    { label: "Heading 2", value: 2, fontSize: "22px" },
+    { label: "Heading 3", value: 3, fontSize: "20px" },
+    { label: "Heading 4", value: 4, fontSize: "18px" },
+    { label: "Heading 5", value: 5, fontSize: "16px" },
+    { label: "Heading 6", value: 6, fontSize: "14px" },
+    { label: "Caption", value: 0, fontSize: "12px" },
   ];
 
   const getCurrentHeading = () => {
@@ -488,7 +492,7 @@ const HeadingLevelButton = () => {
       <DropdownMenuContent className="p-1 flex flex-col gap-y-1">
         {headings.map(({ label, value, fontSize }) => (
           <button
-            key={value}
+            key={`${label}-${value}`}
             style={{ fontSize }}
             className={cn(
               "flex items-center gap-x-2 px-2 py-1 font-[value] rounded-sm hover:bg-neutral-200/80",
@@ -520,10 +524,29 @@ export const FontFamilyButton = () => {
 
   const fonts = [
     { label: "Arial", value: "Arial" },
-    { label: "Times New Roman", value: "Times New Roman" },
-    { label: "Courier New", value: "Courier New" },
-    { label: "Georgia", value: "Georgia" },
+    { label: "Helvetica", value: "Helvetica" },
     { label: "Verdana", value: "Verdana" },
+    { label: "Tahoma", value: "Tahoma" },
+    { label: "Trebuchet MS", value: "Trebuchet MS" },
+    { label: "Times New Roman", value: "Times New Roman" },
+    { label: "Georgia", value: "Georgia" },
+    { label: "Garamond", value: "Garamond" },
+    { label: "Palatino Linotype", value: "Palatino Linotype" },
+    { label: "Courier New", value: "Courier New" },
+    { label: "Lucida Sans", value: "Lucida Sans" },
+    { label: "Lucida Sans Unicode", value: "Lucida Sans Unicode" },
+    { label: "Impact", value: "Impact" },
+    { label: "Segoe UI", value: "Segoe UI" },
+    { label: "Segoe UI Mono", value: "Segoe UI Mono" },
+    { label: "Calibri", value: "Calibri" },
+    { label: "Cambria", value: "Cambria" },
+    { label: "Consolas", value: "Consolas" },
+    { label: "Candara", value: "Candara" },
+    { label: "Century Gothic", value: "Century Gothic" },
+    { label: "Franklin Gothic Medium", value: "Franklin Gothic Medium" },
+    { label: "Book Antiqua", value: "Book Antiqua" },
+    { label: "MS Serif", value: "MS Serif" },
+    { label: "MS Sans Serif", value: "MS Sans Serif" },
   ];
 
   return (

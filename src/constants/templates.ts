@@ -99,34 +99,6 @@ export const templates = [
     `,
   },
   {
-    id: "resume",
-    label: "Resume",
-    imageUrl: "/resume.svg",
-    initialContent: `
-      <h1>Your Name</h1>
-      <p>Email: your.email@example.com | Phone: (123) 456-7890</p>
-      <h2>Professional Summary</h2>
-      <p>A brief summary of your professional experience and skills goes here.</p>
-      <h2>Work Experience</h2>
-      <h3>Job Title, Company Name</h3>
-      <p>Employment Period</p>
-      <ul>
-        <li>Key responsibility or achievement 1</li>
-        <li>Key responsibility or achievement 2</li>
-        <li>Key responsibility or achievement 3</li>
-      </ul>
-      <h2>Education</h2>
-      <h3>Degree, Major</h3>
-      <p>University Name, Graduation Year</p>
-      <h2>Skills</h2>
-      <ul>
-        <li>Skill 1</li>
-        <li>Skill 2</li>
-        <li>Skill 3</li>
-      </ul>
-    `,
-  },
-  {
     id: "cover-letter",
     label: "Cover letter",
     imageUrl: "/cover-letter.svg",
@@ -155,6 +127,56 @@ export const templates = [
     `,
   },
   {
+    id: "status-report",
+    label: "Status Report",
+    imageUrl: "/status-report.svg",
+    initialContent: `
+      <h1>Status Report</h1>
+      <p><strong>Period:</strong> [Week/Month]</p>
+      <h2>Progress</h2>
+      <ul>
+        <li>Progress update 1</li>
+        <li>Progress update 2</li>
+      </ul>
+      <h2>Risks</h2>
+      <ul>
+        <li>Risk 1</li>
+      </ul>
+      <h2>Next Steps</h2>
+      <ul>
+        <li>Next step 1</li>
+      </ul>
+    `,
+  },
+  {
+    id: "resume",
+    label: "Resume",
+    imageUrl: "/resume.svg",
+    initialContent: `
+      <h1>Your Name</h1>
+      <p>Email: your.email@example.com | Phone: (123) 456-7890</p>
+      <h2>Professional Summary</h2>
+      <p>A brief summary of your professional experience and skills goes here.</p>
+      <h2>Work Experience</h2>
+      <h3>Job Title, Company Name</h3>
+      <p>Employment Period</p>
+      <ul>
+        <li>Key responsibility or achievement 1</li>
+        <li>Key responsibility or achievement 2</li>
+        <li>Key responsibility or achievement 3</li>
+      </ul>
+      <h2>Education</h2>
+      <h3>Degree, Major</h3>
+      <p>University Name, Graduation Year</p>
+      <h2>Skills</h2>
+      <ul>
+        <li>Skill 1</li>
+        <li>Skill 2</li>
+        <li>Skill 3</li>
+      </ul>
+    `,
+  },
+  {
     id: "letter",
     label: "Letter",
     imageUrl: "/letter.svg",
@@ -177,6 +199,102 @@ export const templates = [
       <p>Sincerely,</p>
       <p>[Your Name]</p>
       <p class="signature">[Your Signature]</p>
+    `,
+  },
+  {
+    id: "meeting-notes",
+    label: "Meeting Notes",
+    imageUrl: "/meeting-notes.svg",
+    initialContent: `
+      <h1>Meeting Notes</h1>
+      <p><strong>Date:</strong> [Date]</p>
+      <p><strong>Attendees:</strong> [Names]</p>
+      <h2>Agenda</h2>
+      <ul>
+        <li>Agenda item 1</li>
+        <li>Agenda item 2</li>
+      </ul>
+      <h2>Decisions</h2>
+      <ul>
+        <li>Decision 1</li>
+        <li>Decision 2</li>
+      </ul>
+      <h2>Action Items</h2>
+      <ul>
+        <li>Owner — task — due date</li>
+      </ul>
+    `,
+  },
+  {
+    id: "invoice",
+    label: "Invoice",
+    imageUrl: "/invoice.svg",
+    initialContent: `
+      <h1>Invoice</h1>
+      <p><strong>Invoice #:</strong> [Number]</p>
+      <p><strong>Date:</strong> [Date]</p>
+      <h2>Bill To</h2>
+      <p>[Client Name]</p>
+      <h2>Items</h2>
+      <table>
+        <tr>
+          <th>Description</th>
+          <th>Amount</th>
+        </tr>
+        <tr>
+          <td>Service</td>
+          <td>$0.00</td>
+        </tr>
+      </table>
+      <p><strong>Total:</strong> $0.00</p>
+    `,
+  },
+  {
+    id: "agenda",
+    label: "Agenda",
+    imageUrl: "/agenda.svg",
+    initialContent: `
+      <h1>Agenda</h1>
+      <p><strong>Date:</strong> [Date]</p>
+      <p><strong>Meeting:</strong> [Title]</p>
+      <h2>Objectives</h2>
+      <ul>
+        <li>Objective one</li>
+        <li>Objective two</li>
+      </ul>
+      <h2>Topics</h2>
+      <ul>
+        <li>Topic one</li>
+        <li>Topic two</li>
+      </ul>
+      <h2>Action Items</h2>
+      <ul>
+        <li>Owner — task — due date</li>
+      </ul>
+    `,
+  },
+  {
+    id: "project-plan",
+    label: "Project Plan",
+    imageUrl: "/project-plan.svg",
+    initialContent: `
+      <h1>Project Plan</h1>
+      <p><strong>Period:</strong> [Month/Quarter]</p>
+      <h2>Timeline</h2>
+      <ul>
+        <li>Phase 1 — dates</li>
+        <li>Phase 2 — dates</li>
+      </ul>
+      <h2>Milestones</h2>
+      <ul>
+        <li>Milestone one</li>
+        <li>Milestone two</li>
+      </ul>
+      <h2>Owners</h2>
+      <ul>
+        <li>Design — Name</li>
+        <li>Engineering — Name</li>
+      </ul>
     `,
   },
 ];

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 517">
+  <rect width="400" height="517" fill="white"/>
+
+  <text x="24" y="44" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#000000">Agenda</text>
+  <text x="24" y="64" font-family="Arial, sans-serif" font-size="10" fill="#000000">Meeting • [Date]</text>
+
+  <rect x="24" y="86" width="352" height="2" fill="#000000" opacity="0.4"/>
+
+  <text x="24" y="120" font-family="Arial, sans-serif" font-size="11" fill="#000000">Objectives</text>
+  <line x1="24" y1="128" x2="160" y2="128" stroke="#000000" stroke-width="1" opacity="0.4"/>
+  <text x="24" y="150" font-family="Arial, sans-serif" font-size="10" fill="#000000" opacity="0.7">• Objective one</text>
+  <text x="24" y="168" font-family="Arial, sans-serif" font-size="10" fill="#000000" opacity="0.7">• Objective two</text>
+
+  <text x="24" y="210" font-family="Arial, sans-serif" font-size="11" fill="#000000">Topics</text>
+  <line x1="24" y1="218" x2="140" y2="218" stroke="#000000" stroke-width="1" opacity="0.4"/>
+  <text x="24" y="240" font-family="Arial, sans-serif" font-size="10" fill="#000000" opacity="0.7">• Topic one</text>
+  <text x="24" y="258" font-family="Arial, sans-serif" font-size="10" fill="#000000" opacity="0.7">• Topic two</text>
+  <text x="24" y="276" font-family="Arial, sans-serif" font-size="10" fill="#000000" opacity="0.7">• Topic three</text>
+
+  <text x="24" y="320" font-family="Arial, sans-serif" font-size="11" fill="#000000">Action Items</text>
+  <line x1="24" y1="328" x2="180" y2="328" stroke="#000000" stroke-width="1" opacity="0.4"/>
+  <text x="24" y="350" font-family="Arial, sans-serif" font-size="10" fill="#000000" opacity="0.7">• Owner — task — due date</text>
+</svg>

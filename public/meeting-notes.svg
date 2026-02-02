@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 517">
+  <rect width="400" height="517" fill="white"/>
+
+  <text x="24" y="32" font-family="Arial, sans-serif" font-size="14" fill="#000000" font-weight="bold">MEETING NOTES</text>
+
+  <text x="24" y="70" font-family="Arial, sans-serif" font-size="12" fill="#000000">Project Sync</text>
+  <text x="24" y="90" font-family="Arial, sans-serif" font-size="10" fill="#000000">January 28, 2026 • 10:00 AM</text>
+
+  <text x="24" y="130" font-family="Arial, sans-serif" font-size="11" fill="#000000">Attendees</text>
+  <line x1="24" y1="138" x2="160" y2="138" stroke="#000000" stroke-width="1" opacity="0.4"/>
+  <text x="24" y="158" font-family="Arial, sans-serif" font-size="10" fill="#000000" opacity="0.7">• Name One</text>
+  <text x="24" y="176" font-family="Arial, sans-serif" font-size="10" fill="#000000" opacity="0.7">• Name Two</text>
+  <text x="24" y="194" font-family="Arial, sans-serif" font-size="10" fill="#000000" opacity="0.7">• Name Three</text>
+
+  <text x="24" y="230" font-family="Arial, sans-serif" font-size="11" fill="#000000">Key Decisions</text>
+  <line x1="24" y1="238" x2="190" y2="238" stroke="#000000" stroke-width="1" opacity="0.4"/>
+  <text x="24" y="258" font-family="Arial, sans-serif" font-size="10" fill="#000000" opacity="0.7">• Decision item one</text>
+  <text x="24" y="276" font-family="Arial, sans-serif" font-size="10" fill="#000000" opacity="0.7">• Decision item two</text>
+
+  <text x="24" y="312" font-family="Arial, sans-serif" font-size="11" fill="#000000">Action Items</text>
+  <line x1="24" y1="320" x2="180" y2="320" stroke="#000000" stroke-width="1" opacity="0.4"/>
+  <text x="24" y="340" font-family="Arial, sans-serif" font-size="10" fill="#000000" opacity="0.7">• Task owner — due date</text>
+  <text x="24" y="358" font-family="Arial, sans-serif" font-size="10" fill="#000000" opacity="0.7">• Task owner — due date</text>
+</svg>

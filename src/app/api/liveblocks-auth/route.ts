@@ -1,12 +1,40 @@
 ﻿import { Liveblocks } from "@liveblocks/node";
 import { ConvexHttpClient } from "convex/browser";
-import { auth, currentUser } from "@clerk/nextjs/server";
+import { auth, currentUser, clerkClient } from "@clerk/nextjs/server";
 import { api } from "../../../../convex/_generated/api";
 
 const convex = new ConvexHttpClient(process.env.NEXT_PUBLIC_CONVEX_URL!);
 const liveblocks = new Liveblocks({
   secret: process.env.LIVEBLOCKS_SECRET_KEY!,
 });
+
+const CACHE_TTL_MS = 30_000;
+const documentCache = new Map<string, { document: any; expiresAt: number }>();
+const membershipCache = new Map<string, { isMember: boolean; expiresAt: number }>();
+
+function getCachedDocument(id: string) {
+  const cached = documentCache.get(id);
+  if (cached && cached.expiresAt > Date.now()) return cached.document;
+  if (cached) documentCache.delete(id);
+  return null;
+}
+
+function setCachedDocument(id: string, document: any) {
+  documentCache.set(id, { document, expiresAt: Date.now() + CACHE_TTL_MS });
+}
+
+function getCachedMembership(userId: string, organizationId: string) {
+  const key = `${userId}:${organizationId}`;
+  const cached = membershipCache.get(key);
+  if (cached && cached.expiresAt > Date.now()) return cached.isMember;
+  if (cached) membershipCache.delete(key);
+  return null;
+}
+
+function setCachedMembership(userId: string, organizationId: string, isMember: boolean) {
+  const key = `${userId}:${organizationId}`;
+  membershipCache.set(key, { isMember, expiresAt: Date.now() + CACHE_TTL_MS });
+}
 
 export async function POST(req: Request) {
   try {
@@ -34,15 +62,19 @@ export async function POST(req: Request) {
 
     const { room } = await req.json();
     
-    let document;
-    try {
-      document = await convex.query(api.documents.getById, { id: room });
-    } catch (error) {
-      console.error("Error fetching document:", error);
-      return new Response(JSON.stringify({ error: "Document not found" }), { 
-        status: 404,
-        headers: { "Content-Type": "application/json" }
-      });
+    let document = getCachedDocument(room);
+
+    if (!document) {
+      try {
+        document = await convex.query(api.documents.getById, { id: room });
+        if (document) setCachedDocument(room, document);
+      } catch (error) {
+        console.error("Error fetching document:", error);
+        return new Response(JSON.stringify({ error: "Document not found" }), { 
+          status: 404,
+          headers: { "Content-Type": "application/json" }
+        });
+      }
     }
 
     if (!document) {
@@ -56,28 +88,42 @@ export async function POST(req: Request) {
     
     const userOrgId = sessionClaims.org_id as string | undefined;
     
-    // Check if user is in the same organization via session
+    // Check if user is in the same organization via session (active org)
     const isOrganizationMemberViaSession = !!(
       document.organizationId && 
       userOrgId && 
       document.organizationId === userOrgId
     );
 
-    // Check if user is member of the document's organization via Clerk
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const userOrganizationMemberships = (user as any).organizationMemberships || [];
-    const isOrganizationMemberViaClerk = document.organizationId 
-      ? userOrganizationMemberships.some(
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          (membership: any) => membership.organization.id === document.organizationId
-        )
-      : false;
+    // Check if user is member of the document's organization via Clerk API
+    // This checks ALL organizations the user belongs to, not just active one
+    let isOrganizationMemberViaClerk = false;
+    if (document.organizationId) {
+      const cachedMembership = getCachedMembership(user.id, document.organizationId);
+      if (cachedMembership !== null) {
+        isOrganizationMemberViaClerk = cachedMembership;
+      } else {
+        try {
+          const clerk = await clerkClient();
+          const memberships = await clerk.users.getOrganizationMembershipList({
+            userId: user.id,
+          });
+          isOrganizationMemberViaClerk = memberships.data.some(
+            (membership) => membership.organization.id === document.organizationId
+          );
+          setCachedMembership(user.id, document.organizationId, isOrganizationMemberViaClerk);
+        } catch (error) {
+          console.error("Error checking organization membership:", error);
+        }
+      }
+    }
 
     const isOrganizationMember = isOrganizationMemberViaSession || isOrganizationMemberViaClerk;
     
-    // TEMPORARY: Allow all authenticated users to access organization documents for testing
-    const isOrgDocument = !!document.organizationId;
-    const hasAccess = isOwner || isOrganizationMember || isOrgDocument;
+    // Access control:
+    // - Personal documents: only owner can access
+    // - Organization documents: only organization members can access
+    const hasAccess = isOwner || isOrganizationMember;
 
     console.log("Liveblocks Auth Check:", {
       userId: user.id,
@@ -85,9 +131,7 @@ export async function POST(req: Request) {
       documentId: room,
       documentOwnerId: document.ownerId,
       documentOrgId: document.organizationId,
-      userOrgId: userOrgId,
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      userOrganizations: userOrganizationMemberships.map((m: any) => m.organization.id),
+      userActiveOrgId: userOrgId,
       isOwner,
       isOrganizationMemberViaSession,
       isOrganizationMemberViaClerk,
