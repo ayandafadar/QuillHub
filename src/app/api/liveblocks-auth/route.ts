@@ -2,6 +2,7 @@
 import { ConvexHttpClient } from "convex/browser";
 import { auth, currentUser, clerkClient } from "@clerk/nextjs/server";
 import { api } from "../../../../convex/_generated/api";
+import type { Doc } from "../../../../convex/_generated/dataModel";
 
 const convex = new ConvexHttpClient(process.env.NEXT_PUBLIC_CONVEX_URL!);
 const liveblocks = new Liveblocks({
@@ -9,7 +10,7 @@ const liveblocks = new Liveblocks({
 });
 
 const CACHE_TTL_MS = 30_000;
-const documentCache = new Map<string, { document: any; expiresAt: number }>();
+const documentCache = new Map<string, { document: Doc<"documents">; expiresAt: number }>();
 const membershipCache = new Map<string, { isMember: boolean; expiresAt: number }>();
 
 function getCachedDocument(id: string) {
@@ -19,7 +20,7 @@ function getCachedDocument(id: string) {
   return null;
 }
 
-function setCachedDocument(id: string, document: any) {
+function setCachedDocument(id: string, document: Doc<"documents">) {
   documentCache.set(id, { document, expiresAt: Date.now() + CACHE_TTL_MS });
 }
 
