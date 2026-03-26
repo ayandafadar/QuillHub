@@ -1,5 +1,5 @@
 import React from "react";
-import { LoaderIcon } from "lucide-react";
+import { Spinner } from "@/components/ui/spinner";
 
 interface FullscreenLoaderProps {
   label?: string;
@@ -7,9 +7,11 @@ interface FullscreenLoaderProps {
 
 export const FullscreenLoader: React.FC<FullscreenLoaderProps> = ({ label }) => {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center gap-2">
-      <LoaderIcon className="h-6 w-6 text-muted-foreground animate-spin" />
-      {label && <p className="text-sm text-muted-foreground">{label}</p>}
+    <div className="min-h-screen flex flex-col items-center justify-center gap-3 px-4">
+      <Spinner size="md" />
+      <p className="text-sm font-medium text-zinc-600 dark:text-zinc-300">
+        {label || "Loading..."}
+      </p>
     </div>
   );
 };

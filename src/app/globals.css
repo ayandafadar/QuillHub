@@ -294,3 +294,9 @@ body {
 div[data-radix-popper-content-wrapper] {
   z-index: 50!important
 }
+
+/* Hide Clerk development mode labels in all Clerk surfaces. */
+.cl-root [data-localization-key*="developmentMode"],
+.cl-root [class*="developmentMode"] {
+  display: none !important;
+}

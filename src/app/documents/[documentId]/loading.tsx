@@ -1,5 +1,3 @@
-"use client";
-
 import { FullscreenLoader } from "@/components/fullscreen-loader";
 
 const LoadingPage = () => {

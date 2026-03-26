@@ -10,7 +10,7 @@ import { useDebounce } from "@/hooks/use-debounce";
 import { api } from "../../../../convex/_generated/api";
 import { Id } from "../../../../convex/_generated/dataModel";
 import { toast } from "sonner";
-import { LoaderIcon } from "lucide-react";
+import { Spinner } from "@/components/ui/spinner";
 
 interface DocumentInputProps {
   title: string;
@@ -87,7 +87,7 @@ export const DocumentInput = ({ title, id }: DocumentInputProps) => {
       )}
       {showError && <BsCloudSlash className="size-4" />}
       {!showError && !showLoader && <BsCloudCheck className="size-4" />}
-      {showLoader && <LoaderIcon className="size-4 animate-spin text-muted-foreground" />}
+      {showLoader && <Spinner size="xs" color="#a1a1aa" />}
     </div>
   );
 };

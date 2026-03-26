@@ -1,4 +1,3 @@
-import { LoaderIcon } from "lucide-react";
 import { PaginationStatus } from "convex/react";
 import { Doc } from "../../../convex/_generated/dataModel";
 import {
@@ -11,6 +10,7 @@ import {
 } from "@/components/ui/table";
 import { DocumentRow } from "./document-row";
 import { Button } from "@/components/ui/button";
+import { Spinner } from "@/components/ui/spinner";
 
 interface DocumentsTableProps {
   documents: Doc<"documents">[] | undefined;
@@ -23,7 +23,10 @@ export const DocumentsTable = ({ documents, loadMore, status }: DocumentsTablePr
     <div className="max-w-screen-xl mx-auto px-16 py-6 flex flex-col gap-5">
       {documents === undefined ? (
         <div className="flex justify-center items-center h-24">
-          <LoaderIcon className="size-5 animate-spin text-muted-foreground" />
+          <div className="flex items-center gap-3 text-muted-foreground">
+            <Spinner size="sm" />
+            <span className="text-sm">Loading documents...</span>
+          </div>
         </div>
       ) : (
         <div className="bg-white border border-neutral-200 rounded-xl overflow-hidden shadow-sm">
